@@ -17,6 +17,6 @@ PATH=$PATH:/Users/andreas/.rvm/rubies/ruby-2.0.0-p247/bin
 #PATH=$PATH:~/code/git-friendly
 
 PATH=$PATH:/usr/local/share/npm/lib/node_modules
-PATH=$PATH:/usr/local/share/npm/lib/node_modules
+PATH=$PATH:/usr/local/share/npm/bin
 
 export PATH
