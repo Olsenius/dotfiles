@@ -1,0 +1,22 @@
+PATH=/opt/local/bin
+PATH=$PATH:/opt/local/sbin
+
+PATH=$PATH:/bin
+PATH=$PATH:/sbin
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:/usr/bin
+PATH=$PATH:/usr/sbin
+PATH=$PATH:/Users/andreas/bin
+
+#rvm
+PATH=$PATH:~/.rvm/bin
+PATH=$PATH:/Users/andreas/.rvm/gems/ruby-2.0.0-p247/bin
+#PATH=$PATH:/Users/andreas/.rvm/gems/ruby-2.0.0-p247@global/bin
+PATH=$PATH:/Users/andreas/.rvm/rubies/ruby-2.0.0-p247/bin
+
+#PATH=$PATH:~/code/git-friendly
+
+PATH=$PATH:/usr/local/share/npm/lib/node_modules
+PATH=$PATH:/usr/local/share/npm/lib/node_modules
+
+export PATH
