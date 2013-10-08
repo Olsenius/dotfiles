@@ -1,10 +1,32 @@
+[user]
+	name = Olsenius
+	email = andreas@olsenius.com
+
 [alias]
-	c = commit -am
-	up = pull
-	p = push
-	s = status -s
-	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  a = add -A
+  ai = add -i
+  co = checkout
+  c = commit
+  cm = commit -m
+  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  cp = cherry-pick
+  ri = "!r() { git rebase -i HEAD~$1; }; r"
+  r = reset
+  r1 = reset HEAD^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  br = branch
+  s = status
+  l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  ll = log --stat --abbrev-commit
+  sl = shortlog -sn
+  fl = log -u
+  find = !git ls-files | grep -i
+  grep = grep -Ii
+  x = !gitx --all
+  ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+  al = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t=> \\2/' | sort
+
 [color]
 	ui = always
 [apply]
@@ -46,9 +68,6 @@
 [url "git@github.com:olsenius/"]
   insteadOf = "git://github.com/olsenius/"
 
-[user]
-	name = Andreas Lien Olsen
-	email = andreas@olsenius.com
 [push]
 	default = simple
 
