@@ -49,4 +49,6 @@
 [user]
 	name = Andreas Lien Olsen
 	email = andreas@olsenius.com
+[push]
+	default = simple
 
