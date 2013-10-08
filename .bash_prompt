@@ -1,57 +1,46 @@
-# @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
-# Shamelessly copied from https://github.com/gf3/dotfiles
+GREY=$(tput setaf 8)
+GOLD=$(tput setaf 3)
+TEAL=$(tput setaf 6)
+PINK=$(tput setaf 5)
+RESET=$(tput sgr0)
 
-if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-	export TERM=gnome-256color
-elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM=xterm-256color
-fi
+COLOR_U=$GREY
+COLOR_W=$GOLD
+COLOR_GIT=$TEAL
 
-if tput setaf 1 &> /dev/null; then
-	tput sgr0
-	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
-		WHITE=$(tput setaf 256)
-	else
-		MAGENTA=$(tput setaf 5)
-		ORANGE=$(tput setaf 4)
-		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 1)
-		WHITE=$(tput setaf 7)
+__git_status() {
+	local IN_WORKING_DIR="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+	local IN_GIT_DIR="$(git rev-parse --is-inside-git-dir 2>/dev/null)"
+
+	if [ "${IN_WORKING_DIR}" ]; then
+	  local BRANCH="$(git rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null)"
+	  if [ "$BRANCH" == HEAD ]; then
+	  	HEAD="$(git rev-parse --short HEAD 2> /dev/null)"
+	  	if [ -n "${HEAD}" ]; then
+	  		BRANCH="detached HEAD $(git rev-parse --short HEAD 2> /dev/null)"
+	  		COLOR_GIT=$PINK
+	  	else
+	  		BRANCH="empty"
+	  	fi
+	  fi
+
+	  echo -n "${COLOR_GIT}(${BRANCH}"
+
+	  local BEHIND="$(git rev-list --count --left-only @{upstream}...HEAD 2>/dev/null)"
+	  local AHEAD="$(git rev-list --count --right-only @{upstream}...HEAD 2>/dev/null)"
+
+	  if [ -n "${BEHIND}" ]; then
+	  	echo -n " -${BEHIND} +${AHEAD}"
+	  fi
+	  echo -n ")"
+	elif [ "${IN_GIT_DIR}" ]; then
+		echo "${PINK}(.git dir!)"
 	fi
-	BOLD=$(tput bold)
-	RESET=$(tput sgr0)
-else
-	MAGENTA="\033[1;31m"
-	ORANGE="\033[1;33m"
-	GREEN="\033[1;32m"
-	PURPLE="\033[1;35m"
-	WHITE="\033[1;37m"
-	BOLD=""
-	RESET="\033[m"
-fi
-
-
-function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 
-function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
-}
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=false
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="verbose"
 
-# iTerm Tab and Title Customization and prompt customization
-# http://sage.ucsc.edu/xtal/iterm_tab_customization.html
-
-# Put the string " [bash]   hostname::/full/directory/path"
-# in the title bar using the command sequence
-# \[\e]2;[bash]   \h::\]$PWD\[\a\]
-
-# Put the penultimate and current directory
-# in the iterm tab
-# \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
-
-PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+export PS1='\n${COLOR_U}\u@\h ${COLOR_W}\w${COLOR_GIT}$(__git_status)${RESET}\n$ '
