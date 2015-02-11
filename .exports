@@ -1,4 +1,4 @@
-# Make vim the default editor
+# Make subl the default editor
 export EDITOR="subl"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
@@ -9,3 +9,5 @@ export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # Make some commands not show up in history
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
+export NODE_PATH="/usr/local/lib/node"
