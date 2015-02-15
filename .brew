@@ -32,6 +32,7 @@ brew install entr
 
 brew install caskroom/cask/brew-cask
 brew cask install multibit
+brew cask install flux
  
 brew upgrade brew-cask 
 brew cask cleanup
