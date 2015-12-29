@@ -30,3 +30,8 @@ complete -W "NSGlobalDomain" defaults
 #source ~/.profile
 
 
+#if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+#export JENV_ROOT=/usr/local/opt/jenv
+
+
