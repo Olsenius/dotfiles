@@ -124,8 +124,5 @@ alias swap='id1=8CA44787-BAC4-41CA-BA06-909A1D1801DA && id2=D3253693-B752-4519-B
 export KUBE_EDITOR="code -w"
 export EDITOR="code -w"
 
-
-#ScaleAQ nuget package feed
-
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
