@@ -1,5 +1,7 @@
 {{- $codespaces:= env "CODESPACES" | not | not -}}
 {{- $remoteContainers:= env "REMOTE_CONTAINERS" | not | not -}}
+{{- $container:= or $codespaces $remoteContainers -}}
+
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
@@ -8,3 +10,4 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     email = "andreas.olsen@gmail.com"
     codespaces = {{ $codespaces }}
     remoteContainers = {{ $remoteContainers }}
+    container = {{ $container }}
