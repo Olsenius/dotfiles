@@ -1,0 +1,101 @@
+scan_timeout = 30
+command_timeout = 1700
+add_newline = false
+
+# Move the directory to the second line
+format = "$all$directory$character"
+
+
+[git_branch]
+format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
+symbol = ' '
+style = '#FFA500'
+truncation_length = 9223372036854775807
+truncation_symbol = '…'
+only_attached = false
+always_show_remote = false
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+style = 'green'
+only_detached = true
+disabled = false
+tag_symbol = ' 🏷  '
+tag_disabled = true
+
+[git_state]
+rebase = 'REBASING'
+merge = 'MERGING'
+revert = 'REVERTING'
+cherry_pick = 'CHERRY-PICKING'
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+style = 'yellow'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'red'
+stashed = '\$'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+conflicted = '='
+deleted = '✘'
+renamed = '»'
+modified = '!'
+staged = '+'
+untracked = '?'
+disabled = false
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'purple'
+disabled = false
+read_only = '🔒'
+read_only_style = 'red'
+truncation_symbol = ''
+home_symbol = '~'
+
+[docker_context]
+symbol = '🐳 '
+style = 'blue'
+format = 'via [$symbol$context]($style) '
+only_with_files = true
+disabled = false
+detect_extensions = []
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_folders = []
+
+[shell]
+format = '$indicator '
+bash_indicator = 'bsh'
+fish_indicator = 'fsh'
+zsh_indicator = 'zsh'
+powershell_indicator = 'psh'
+ion_indicator = 'ion'
+elvish_indicator = 'esh'
+tcsh_indicator = 'tsh'
+unknown_indicator = ''
+disabled = true
+
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+detect_folders = ["base"]
+detect_files = [".gitops"]
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+".*/openshift-cluster/.*" = "openshift"
+"gke_.*_(?P<var_cluster>[\\w-]+)" = "gke-$var_cluster"
+[kubernetes.user_aliases]
+"dev.local.cluster.k8s" = "dev"
+"root/.*" = "root"
