@@ -81,7 +81,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent kubectl aliases dotnet encode64 node npm docker brew terraform zsh-autosuggestions zsh-syntax-highlighting zsh-completions kn 1password)
+#plugins=(git ssh-agent kubectl aliases dotnet encode64 node npm docker brew terraform zsh-autosuggestions zsh-syntax-highlighting zsh-completions kn 1password)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
@@ -123,5 +123,11 @@ alias swap='id1=8CA44787-BAC4-41CA-BA06-909A1D1801DA && id2=D3253693-B752-4519-B
 
 export KUBE_EDITOR="code -w"
 export EDITOR="code -w"
+
+# source antidote
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
 
 eval "$(starship init zsh)"
