@@ -1,0 +1,4 @@
+#!/bin/sh
+{{ if .container }}
+  sudo chsh -s $(which zsh)
+{{ end }}
