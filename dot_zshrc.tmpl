@@ -13,7 +13,13 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/Users/andreas/tmp/apache-maven-3.8.5/bin:$PATH"
 export PATH="/opt/X11/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add Docker Desktop for Mac (docker)
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 {{ end }}
 
