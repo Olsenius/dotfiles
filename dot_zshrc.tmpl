@@ -21,6 +21,9 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # Add Docker Desktop for Mac (docker)
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
+export NPM_TOKEN={{ onepasswordRead "op://env/NPM_TOKEN/password" "my.1password.eu" }}
+export NUGET_TOKEN={{ onepasswordRead "op://env/NUGET_TOKEN/password" "my.1password.eu" }}
+
 {{ end }}
 
 
