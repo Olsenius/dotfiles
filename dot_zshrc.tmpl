@@ -24,6 +24,8 @@ export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 export NPM_TOKEN={{ onepasswordRead "op://env/NPM_TOKEN/password" "my.1password.eu" }}
 export NUGET_TOKEN={{ onepasswordRead "op://env/NUGET_TOKEN/password" "my.1password.eu" }}
 
+compctl -g '~/.itermocil/*(:t:r)' itermocil
+
 {{ end }}
 
 
