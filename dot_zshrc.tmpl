@@ -23,6 +23,7 @@ export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 export NPM_TOKEN={{ onepasswordRead "op://env/NPM_TOKEN/password" "my.1password.eu" }}
 export NUGET_TOKEN={{ onepasswordRead "op://env/NUGET_TOKEN/password" "my.1password.eu" }}
+export GITHUB_TOKEN={{ onepasswordRead "op://env/GITHUB_TOKEN/password" "my.1password.eu" }}
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
@@ -139,6 +140,7 @@ alias gs="git status"
 alias gd="git diff"
 alias dl="cd ~/Downloads/"
 alias swap='id1=8CA44787-BAC4-41CA-BA06-909A1D1801DA && id2=D3253693-B752-4519-BA20-EC29083CEE03 && displayplacer list | tail -n1 | sed "s/$id1/\n/g;s/$id2/$id1/g;s/\n/$id2/g;s/displayplacer//" | xargs displayplacer'
+alias sed='docker run --rm -i -w $(PWD) -v $(PWD):$(PWD) hairyhenderson/sed'
 
 export KUBE_EDITOR="code -w"
 export EDITOR="code -w"
