@@ -29,6 +29,10 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
+
 {{ end }}
 
 
