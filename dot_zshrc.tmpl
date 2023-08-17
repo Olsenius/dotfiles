@@ -33,6 +33,37 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
 
+get-latest-stage-tag() {
+    git fetch
+    git tag --sort=-version:refname |\
+    head -n 50 |\
+    grep "\-stage" |\
+    head -n 1
+}
+
+get-next-stage-tag() {
+  get-latest-stage-tag |\
+    awk -F '.' '{printf "%s.%d.%d-stage", $1, $2, $3+1}'
+}
+
+get-next-prod-tag() {
+  get-latest-stage-tag |\
+    awk -F '.' '{printf "%s.%d.%d-prod", $1, $2, $3}'
+}
+
+release-stage() {
+  gh release create $(get-next-stage-tag) -n ""
+}
+
+release-prod() {
+  gh release create $(get-next-prod-tag) -n ""
+}
+
+release-all() {
+  release-stage
+  release-prod
+}
+
 {{ end }}
 
 
