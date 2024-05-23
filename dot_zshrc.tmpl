@@ -29,6 +29,10 @@ export OCTOPUS_API_KEY={{ onepasswordRead "op://env/OCTOPUS_API_KEY/password" "m
 export SCALEAQCONTAINERREGISTRY_USERNAME={{ onepasswordRead "op://Private/scaleaqcontainerregistry/username" "scaleaq.1password.eu" }}
 export SCALEAQCONTAINERREGISTRY_PASSWORD={{ onepasswordRead "op://Private/scaleaqcontainerregistry/password" "scaleaq.1password.eu" }}
 
+export SUBSCRIPTION_DEVELOPMENT=ace18c32-0aab-4091-bcc3-32ce1b516645
+export SUBSCRIPTION_PRODUCTION=75c3a655-d005-4e4b-8716-e18571656da8
+export SUBSCRIPTION_SANDBOX=563848be-f323-4c6d-97a4-3794923689fa
+
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
