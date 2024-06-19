@@ -32,6 +32,9 @@ export SCALEAQCONTAINERREGISTRY_PASSWORD={{ onepasswordRead "op://Private/scalea
 export SUBSCRIPTION_DEVELOPMENT=ace18c32-0aab-4091-bcc3-32ce1b516645
 export SUBSCRIPTION_PRODUCTION=75c3a655-d005-4e4b-8716-e18571656da8
 export SUBSCRIPTION_SANDBOX=563848be-f323-4c6d-97a4-3794923689fa
+export SUBSCRIPTION_CUSTOMER_DEV=ef12312a-f5f1-4471-b287-f9dfb33d6fa0
+export SUBSCRIPTION_CUSTOMER_STAGE=e2c14d95-903b-436d-881b-39aa9004ee04
+export SUBSCRIPTION_CUSTOMER_PROD=c580d0a8-985f-4df4-a8d0-57c950f31f2a
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
@@ -157,6 +160,7 @@ alias gd="git diff"
 alias dl="cd ~/Downloads/"
 alias swap='id1=8CA44787-BAC4-41CA-BA06-909A1D1801DA && id2=D3253693-B752-4519-BA20-EC29083CEE03 && displayplacer list | tail -n1 | /usr/bin/sed "s/$id1/\n/g;s/$id2/$id1/g;s/\n/$id2/g;s/displayplacer//" | xargs displayplacer'
 alias sed='docker run --rm -i -w $(PWD) -v $(PWD):$(PWD) hairyhenderson/sed'
+alias c=clear
 
 export KUBE_EDITOR="code -w"
 export EDITOR="code -w"
