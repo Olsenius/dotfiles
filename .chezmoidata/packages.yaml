@@ -1,0 +1,9 @@
+packages:
+  darwin:
+    brews:
+    - 'thefuck'
+    - 'age'
+    - 'bat'
+    - 'kubectx'
+    casks:
+    # - 'google-chrome'
