@@ -16,3 +16,4 @@ ohmyzsh/ohmyzsh path:plugins/terraform
 ohmyzsh/ohmyzsh path:plugins/kn 
 ohmyzsh/ohmyzsh path:plugins/1password
 ohmyzsh/ohmyzsh path:plugins/z
+ohmyzsh/ohmyzsh path:plugins/direnv
