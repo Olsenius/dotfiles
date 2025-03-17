@@ -191,6 +191,12 @@ if [ -f '/Users/andreas/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/and
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/andreas/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andreas/tmp/google-cloud-sdk/completion.zsh.inc'; fi
 
+bindkey "^[[3~"  delete-char
+bindkey  "^[^[[A"  beginning-of-line
+bindkey  "^[^[[B"  end-of-line
+bindkey "^[^[[C" forward-word  ## mac with option/alt
+bindkey "^[^[[D" backward-word ## mac with option/alt
+export WORDCHARS='*?_[]~=&;!#$%^(){}<>'
 
 #fzf
 source <(fzf --zsh)
