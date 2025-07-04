@@ -28,6 +28,7 @@ export GITHUB_TOKEN={{ onepasswordRead "op://env/GITHUB_TOKEN/password" "my.1pas
 export TASKFILES_TOKEN={{ onepasswordRead "op://env/TASKFILES_TOKEN/password" "my.1password.eu" }}
 export OCTOPUS_API_KEY={{ onepasswordRead "op://env/OCTOPUS_API_KEY/password" "my.1password.eu" }}
 export ANTHROPIC_API_KEY={{ onepasswordRead "op://env/ANTHROPIC_API_KEY/password" "my.1password.eu" }}
+export OPENAI_API_KEY={{ onepasswordRead "op://env/OPENAI_API_KEY/password" "my.1password.eu" }}
 
 
 export SCALEAQCONTAINERREGISTRY_USERNAME={{ onepasswordRead "op://Private/scaleaqcontainerregistry/username" "scaleaq.1password.eu" }}
@@ -171,6 +172,8 @@ alias dl="cd ~/Downloads/"
 alias swap='id1=8CA44787-BAC4-41CA-BA06-909A1D1801DA && id2=D3253693-B752-4519-BA20-EC29083CEE03 && displayplacer list | tail -n1 | /usr/bin/sed "s/$id1/\n/g;s/$id2/$id1/g;s/\n/$id2/g;s/displayplacer//" | xargs displayplacer'
 alias sed='docker run --rm -i -w $(PWD) -v $(PWD):$(PWD) hairyhenderson/sed'
 alias c=clear
+alias tm='task-master'
+alias taskmaster='task-master'
 
 export KUBE_EDITOR="code -w"
 export EDITOR="code -w"
