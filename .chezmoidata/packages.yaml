@@ -1,6 +1,7 @@
 packages:
   darwin:
     brews:
+    - 'tmux'
     - 'thefuck'
     - 'age'
     - 'bat'
